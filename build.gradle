@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.testing'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+            files(
+                    "../travelport-0.0.1.jar"
+            )
+    )
+    runtimeOnly group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+    compileOnly group: 'org.apache.axis2', name: 'axis2-xmlbeans', version: '1.7.8'
+    runtimeOnly group: 'org.projectlombok', name: 'lombok', version: '1.12.2'
+//    axisGenAntTask 'org.apache.axis2:axis2-ant-plugin:1.7.4'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+
+//    apt "org.projectlombok:lombok:1.18.2"
+    runtimeOnly group: 'com.google.code.gson', name: 'gson', version: '2.7'
+
+    compileOnly group: 'org.springframework', name: 'spring-oxm', version: '5.1.6.RELEASE'
+    compileOnly group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation group: 'org.apache.axis2', name: 'axis2-adb', version: '1.7.9'
+    implementation 'org.springframework:spring-oxm:5.3.14'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation 'org.apache.httpcomponents:httpcore:4.4.13'
+
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.testing.Main'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
